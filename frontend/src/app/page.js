@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-axios.defaults.baseURL = process.env.API_URL;
+axios.defaults.baseURL =
+  "https://todo-ahgb.onrender.com" || process.env.API_URL;
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
