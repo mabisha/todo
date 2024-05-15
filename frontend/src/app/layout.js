@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import dynamic from "next/dynamic";
 
-const inter = Inter({ subsets: ["latin"] });
+const Inter = dynamic(() => import("next/font/google"), {
+  ssr: false, // Ensure the font is not imported during server-side rendering
+});
+
+import "./globals.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,10 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={inter.className}
-        style={{ backgroundColor: " rgb(48, 118, 114)" }}
-      >
+      <body style={{ backgroundColor: "rgb(48, 118, 114)" }}>
+        <style>{`
+          ${inter.styles}
+          /* Additional CSS styles can be added here */
+        `}</style>
         {children}
       </body>
     </html>
