@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-axios.defaults.baseURL = process.env.URL;
+axios.defaults.baseURL = process.env.API_URL;
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
